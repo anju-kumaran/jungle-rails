@@ -1,5 +1,5 @@
 <section class="cart-show">
-
+<% if !enhanced_cart.empty? %>
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
@@ -25,7 +25,7 @@
             TOTAL:
           </th>
           <th>
-            <%= cart_subtotal_cents / 100.0 %>
+            <%= humanized_money_with_symbol cart_subtotal_cents / 100.0 %>
           </th>
         </tr>
       </tfoot>
@@ -48,5 +48,8 @@
       <% end %>
     </div>
   </div>
+<% else %>
+<a href='/'>'Your Cart Is Empty, Please Go Back To Home Page To Select A Product!!!'</a>
 
+<% end %>
 </section>
